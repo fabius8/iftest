@@ -31,7 +31,7 @@ mint(){
             echo $status
             echo "mint again"
             info=$(${cmd_mint} 2>&1)
-            for i in $(seq 1 30); do echo -ne ".";sleep 5;done;
+            for i in $(seq 1 80); do echo -ne ".";sleep 5;done;
         fi
     else
         echo "balance: $balance"
