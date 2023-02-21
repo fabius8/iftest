@@ -72,6 +72,7 @@ totol=$(awk 'END {print NR}' < $nodefile)
 count=0
 for line in $(cat $nodefile)
 do
+  date '+%Y-%m-%d %H:%M:%S'
   count=`expr $count + 1`
   nodeName=$line
   echo "$totol/$count $nodeName"
