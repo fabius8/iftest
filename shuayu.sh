@@ -19,7 +19,7 @@ mint(){
     echo $info
 
     for i in $(seq 1 60); do echo -ne ".";sleep 5;done;
-
+    while [[ $info =~ "Not enough" ]];do sleep 60;info=$(${cmd_mint} 2>&1);echo $info;done
     while true;
     do
     balance=`ironfish wallet:balances | grep $1 | awk '{print $3}'`
@@ -79,5 +79,5 @@ do
   mint $nodeName
   burn $nodeName
   send $nodeName
-  sleep 10
+  for i in $(seq 1 60); do echo -ne ".";sleep 5;done;
 done
