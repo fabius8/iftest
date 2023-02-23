@@ -10,10 +10,10 @@ mint(){
     while true;
     do
     status=`ironfish wallet:transactions | awk 'NR==3 {print $4}'`
-    if [ $status == "confirmed" ]; then
+    if [[ $status == "confirmed" ]]; then
         break
     fi
-    if [ $status == "expired" ]; then
+    if [[ $status == "expired" ]]; then
         info=$(${cmd_mint} 2>&1)
         echo $info
         for i in $(seq 1 30); do echo -ne ".";sleep 10;done;
@@ -32,10 +32,10 @@ burn(){
     while true;
     do
     status=`ironfish wallet:transactions | awk 'NR==3 {print $4}'`
-    if [ $status == "confirmed" ]; then
+    if [[ $status == "confirmed" ]]; then
         break
     fi
-    if [ $status == "expired" ]; then
+    if [[ $status == "expired" ]]; then
         info=$(${cmd_burn} 2>&1)
         echo $info
         for i in $(seq 1 30); do echo -ne ".";sleep 10;done;
@@ -53,10 +53,10 @@ send(){
     while true;
     do
     status=`ironfish wallet:transactions | awk 'NR==3 {print $4}'`
-    if [ $status == "confirmed" ]; then
+    if [[ $status == "confirmed" ]]; then
         break
     fi
-    if [ $status == "expired" ]; then
+    if [[ $status == "expired" ]]; then
         info=$(${cmd_send} 2>&1)
         echo $info
         for i in $(seq 1 30); do echo -ne ".";sleep 10;done;
